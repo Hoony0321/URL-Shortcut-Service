@@ -1,0 +1,14 @@
+package com.hoony0321.URL_Shortcut.form;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@Builder
+public class CreateUrlShortcutForm {
+    private final String url;
+    private final String shortcut;
+}
