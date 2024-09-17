@@ -1,0 +1,64 @@
+# Maven 프로젝트 관련 ignore
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle 프로젝트 관련 ignore
+.gradle/
+build/
+!gradle-wrapper.jar
+
+# Eclipse 관련 ignore
+.project
+.classpath
+.settings/
+bin/
+tmp/
+
+# IntelliJ IDEA 관련 ignore
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# STS(Spring Tool Suite) 관련 ignore
+.springBeans/
+
+# 로그 파일 관련 ignore
+*.log
+
+# 운영 체제별 ignore
+
+# Windows 관련 ignore
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS 관련 ignore
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux 관련 ignore
+*~
+
+# 환경설정 파일 ignore
+*.env
+
+# 기타 파일 ignore
+*.swp
+*.bak
+*.tmp
+*.orig
+
+# JRebel 관련 ignore
+rebel.xml
+
+# Docker 관련 ignore
+docker-compose.yml
+Dockerfile
+
