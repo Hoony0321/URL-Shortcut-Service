@@ -27,7 +27,7 @@ public class UrlShortcut {
         public static UrlShortcut createEntity(CreateUrlShortcutForm form) {
             UrlShortcut entity = new UrlShortcut();
             entity.originalUrl = form.getUrl();
-            entity.shortUrl = form.getUrl();
+            entity.shortUrl = form.getShortcut();
             entity.count = 0;
             return entity;
         }
