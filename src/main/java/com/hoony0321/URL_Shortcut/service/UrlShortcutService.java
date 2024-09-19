@@ -57,7 +57,13 @@ public class UrlShortcutService {
     }
 
     @Transactional
-    public void deleteUrlShortcut(String url){
+    public void deleteUrlShortcut(Long id){
+        UrlShortcut entity = urlShortcutRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 URL입니다."));
+        urlShortcutRepository.delete(entity);
+    }
+
+    @Transactional
+    public void deleteUrlShortcutByUrl(String url){
         UrlShortcut entity = urlShortcutRepository.findByOriginalUrl(url).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 URL입니다."));
         urlShortcutRepository.delete(entity);
     }

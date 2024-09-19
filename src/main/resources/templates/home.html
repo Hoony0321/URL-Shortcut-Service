@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Url Shortcut</title>
+</head>
+<body>
+<h1>URL Shortcut</h1>
+
+<!-- Original URL과 Shortcut URL을 입력받는 폼 -->
+<form th:action="@{/url}" method="post">
+    <input type="text" name="originalUrl" placeholder="Enter original URL"/>
+    <input type="text" name="shortUrl" placeholder="Enter shortcut URL"/>
+    <button type="submit">Submit</button>
+</form>
+
+
+<h2>URL List</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Original URL</th>
+        <th>Shortened URL</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- URL 목록 반복 -->
+    <tr th:each="url : ${urlList}">
+        <form th:action="@{/url/update}" method="post">
+            <!-- Original URL 입력 필드 -->
+            <td>
+                <input type="text" name="originalUrl" th:value="${url.originalUrl}"/>
+            </td>
+
+            <!-- Shortened URL 입력 필드 -->
+            <td>
+                <input type="text" name="shortUrl" th:value="${url.shortUrl}"/>
+            </td>
+
+
+            <!--바로가기 및 수정 및 삭제 버튼 -->
+            <td>
+
+                <a th:href="'https://' + ${url.originalUrl}" target="_blank" style="text-decoration: none;">
+                    <button type="button">Move</button>
+                </a>
+
+                <input type="hidden" name="id" th:value="${url.id}"/>
+                <button type="submit">Update</button>
+        </form>
+
+        <!-- 삭제 버튼 폼 -->
+        <form th:action="@{/url/delete}" method="post" style="display:inline;">
+            <input type="hidden" name="id" th:value="${url.id}"/>
+            <button type="submit" onclick="return confirm('Are you sure you want to delete this URL?');">Delete</button>
+        </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
