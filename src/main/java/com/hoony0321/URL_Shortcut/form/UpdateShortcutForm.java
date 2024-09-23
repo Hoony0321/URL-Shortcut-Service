@@ -8,6 +8,8 @@ import lombok.Data;
 @Data
 @Builder
 public class UpdateShortcutForm {
+    private final Long id;
+    private final Long userId;
     private final String url;
     private final String newShortcut; // Shortcut 변경 시 새로운 Shortcut
 }
