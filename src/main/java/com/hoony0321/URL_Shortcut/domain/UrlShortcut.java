@@ -16,18 +16,21 @@ public class UrlShortcut {
         @Column(name = "url_shortcut_id")
         private Long id;
 
-        @Column(unique = true)
         private String originalUrl;
 
-        @Column(unique = true)
         private String shortUrl;
 
         private Integer count = 0;
 
-        public static UrlShortcut createEntity(CreateUrlShortcutForm form) {
+        @ManyToOne
+        @JoinColumn(name = "user_id")
+        private User user;
+
+        public static UrlShortcut createEntity(CreateUrlShortcutForm form, User user) {
             UrlShortcut entity = new UrlShortcut();
             entity.originalUrl = form.getUrl();
             entity.shortUrl = form.getShortcut();
+            entity.user = user;
             entity.count = 0;
             return entity;
         }

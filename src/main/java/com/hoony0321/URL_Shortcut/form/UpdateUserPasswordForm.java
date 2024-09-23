@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-@Data
 @AllArgsConstructor
+@Data
 @Builder
-public class CreateUrlShortcutForm {
-    private final String url;
-    private final String shortcut;
-    private final Long userId;
+public class UpdateUserPasswordForm {
+    private final Long id;
+    private final String email;
+    private final String newPassword;
 }

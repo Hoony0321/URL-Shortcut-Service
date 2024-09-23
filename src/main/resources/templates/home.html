@@ -2,8 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Url Shortcut</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
 <body>
+
+<!-- 상단에 로그인/회원가입 버튼 -->
+<!-- 상단에 네비게이션 바 -->
+<nav>
+    <ul>
+        <!-- 로그인한 경우 로그아웃 버튼만 오른쪽 끝에 빨간 버튼으로 표시 -->
+        <li style="margin-left: auto;">
+            <span th:text="${user.email}" class="user-email"></span>
+            <a th:href="@{/logout}" th:onclick="return confirm('Are you sure you want to log out?');" class="logout-button">
+                Logout
+            </a>
+        </li>
+    </ul>
+</nav>
+
 <h1>URL Shortcut</h1>
 
 <!-- Original URL과 Shortcut URL을 입력받는 폼 -->
